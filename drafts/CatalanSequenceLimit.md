@@ -15,10 +15,7 @@ $$
 
 Thus,
 $$
-\begin{aligned}
-C_n&=\frac{(2n)!}{n! (n+1)!}\\\\
-C_{n+1}&= \frac{(2n+1)!}{(n+1)!(n+2)!}
-\end{aligned}
+C_n=\frac{(2n)!}{n! (n+1)!},\quad C_{n+1}= \frac{(2n+1)!}{(n+1)!(n+2)!}
 $$
 Therefore,
 
@@ -55,9 +52,7 @@ $$
 \\
 &=
 \frac{2(2n+1)}{n+2}=\frac{4n+2}{n+2}
-\\
-\\
-&=
+=
 \frac{4(n+2)-6}{n+2}=4-\frac{6}{n+2}
 \end{aligned}
 $$
