@@ -1,0 +1,157 @@
+\documentclass[a4paper,12pt,oneside]{article}
+
+\usepackage{caption} 
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc} 
+\usepackage{fancyhdr} 
+\usepackage{lscape}
+
+\usepackage{lmodern}
+
+\usepackage[normalem]{ulem}
+\usepackage[left=3cm,right=2cm,top=1.5cm,bottom=1cm,
+textheight=245mm,textwidth=160mm,includeheadfoot,headsep=1cm,
+footskip=1cm,headheight=14.599pt]{geometry}
+
+\usepackage{graphicx} 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+\usepackage{epstopdf}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Satz}[section] % reset theorem numbering for each chapter
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Beispiel} % same for example numbers
+\theoremstyle{definition}
+
+\newtheorem{subdefn}{Definition}[thm]
+\renewcommand{\thesubdefn}{\thedefn\alph{subdefn}}
+
+\newtheorem*{remark}{Remark}
+
+\usepackage{chngcntr}
+\usepackage{apptools}
+\AtAppendix{\counterwithin{lemma}{section}}
+\AtAppendix{\counterwithin{theorem}{section}}
+
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corolarry}{Korollar}[section]
+\newtheorem{proposition}{Vorschlag}[section]
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[colorlinks,pdfpagelabels,pdfstartview=FitH,
+bookmarksopen=true,bookmarksnumbered=true,linkcolor=black,
+plainpages=false,hypertexnames=false,citecolor=black]{hyperref}
+
+\usepackage[backend=bibtex, style=numeric, bibstyle=numeric, maxcitenames=2]{biblatex}
+
+
+ \bibliography{bib/literatur.bib}       
+
+\usepackage{complexity}
+\usepackage{eqparbox}
+\usepackage{calligra}
+\usepackage{rotating}
+
+\usepackage{tikz-cd,tikz,tkz-graph,tkz-berge}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphs.standard}
+
+\usepackage{epigraph}
+\setlength\epigraphwidth{.8\textwidth}
+\setlength\epigraphrule{0pt}
+
+\usepackage{tikzscale}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows}
+
+\usepackage{tkz-euclide}
+
+\citetrackerfalse
+
+\tikzcdset{every label/.append style = {font = \small}}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+\usetikzlibrary{patterns, positioning, arrows}
+\pgfplotsset{compat=1.15}
+
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+
+\usepackage[acronym]{glossaries}
+\usepackage{pdfpages}
+
+\title{Enumerative Combinatorics\\[0.3cm] \Large Lecture Notes}
+\date{\today}
+\author{David Scholz}
+
+\begin{document}
+
+\makeatletter
+    \begin{titlepage}
+        \begin{center}
+            {\huge \bfseries  \@title }\\[0.5cm] 
+            {\LARGE  \@author}\\[50ex] 
+            {\large \@date}
+        \end{center}
+    \end{titlepage}
+\makeatother
+\thispagestyle{empty}
+\newpage
+
+\setcounter{page}{1} %Start the actually document on page 1
+
+\thispagestyle{empty}
+  
+\newpage  
+\pagestyle{empty}
+
+\newpage
+
+\begin{abstract}
+    Abstract
+\end{abstract} 
+
+
+\newpage
+\pagestyle{empty}
+
+\tableofcontents
+
+\newpage
+\pagestyle{fancy} 
+
+
+ 
+\pagestyle{fancy}
+\newpage
+\pagenumbering{arabic}
+\include{chapters/introduction.tex}
+
+
+\newpage
+
+\thispagestyle{empty}
+    
+\end{document}
