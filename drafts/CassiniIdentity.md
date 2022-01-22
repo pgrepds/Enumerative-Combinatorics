@@ -17,7 +17,7 @@ f_n^2-f_{n+1}f_{n-1} \\
 &=
 -(f_{n+1}f_{n-1}-f_n^2)\\
 &=
--(-1)^n \qquad \qquad \qquad \text{Induction Hypothesis} \\
+-(-1)^n \qquad \qquad \qquad \text{(Induction Hypothesis)} \\
 &=
 (-1)^{n+1}
 \end{aligned}
