@@ -53,55 +53,31 @@ $$
 $$
 \begin{aligned}
 \sum_{k=0}^{n+1} {n+1 \choose k}^2 &= {{n+1} \choose 0}^2 + \sum_{k=1}^{n+1} {{n+1} \choose k}^2\\
-
 &=
-
 1 + \sum_{k=1}^n {n+1 \choose k}^2 + {n +1 \choose n+1}^2 \\
-
 &=
-
 1 + \sum_{k=1}^n \biggl [ {n \choose k-1} + {n \choose k} \biggr]^2 + 1 \\
-
 &=
-
 2 + \sum_{k=1}^n \biggl [ {n \choose k-1}^2 + 2{n \choose k-1}{n \choose k} + {n \choose k}^2 \biggr] \\
-
 &=
-
 2 + \sum_{k=1}^n \biggl [ {n \choose k-1}^2 + {n \choose k}^2 \biggr] + 2 \sum_{k+1}^n {n \choose {k-1}}{n \choose k}\\
-
 &=
-
 1 + \sum_{k=1}^n {n \choose k}^2 + 1 + \sum_{k=1}^n {n \choose k}^2 + 2\sum_{k=1}^n {n \choose k-1} {n \choose k} \\
-
 &=
-
 {n \choose 0} + \sum_{k=1}^n {n \choose k}^2 + {n \choose 0} + \sum_{k=1}^n {n \choose k}^2 + 2\sum_{k=1}^n {n \choose k-1} {n \choose k} \\
-
 &=
-
 {2n \choose n} + {2n \choose n} + 2\sum_{k=1}^n {n \choose k-1} {n \choose k} \\
-
 &=
-
 2 {2n \choose n} + 2\sum_{k=1}^n {n \choose k-1} {n \choose k}  \\
-
 &=
-
 2 {2n \choose n} + 2 {2n \choose n+1} \qquad \qquad \qquad \qquad \text{(Corollary 2)}\\
-
 &=
-
 2 \biggl ( {2n \choose n} + {2n \choose n+1} \biggr) \\
-
 &=
-
 2 {2n +1 \choose n+1} \\
-
 &=
-
 {2(n + 1) \choose n +1}
-
 \end{aligned}
 $$
+
 This completes the proof.
