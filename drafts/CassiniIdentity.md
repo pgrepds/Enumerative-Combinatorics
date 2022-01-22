@@ -3,7 +3,7 @@ $$
 f_{n-1}f_{n+1}-f_n^2=(-1)^n
 $$
 
-**Proof:** we proceed by induction on $n$. The base case is trivial. Suppose that the claim holds for $n$. Then,
+**Proof:** We proceed by induction on $n$. The base case is trivial. Suppose that the claim holds for $n$. Then,
 
 $$
 \begin{aligned}
