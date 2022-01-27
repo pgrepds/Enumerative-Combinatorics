@@ -112,6 +112,8 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref}
     \import{./figures/}{#2.pdf_tex}
 }
 
+\usepackage{titling}
+
 \pdfsuppresswarningpagegroup=1
 
 \title{Enumerative Combinatorics\\[0.3cm] \Large Lecture Notes}
@@ -120,16 +122,10 @@ plainpages=false,hypertexnames=false,citecolor=black]{hyperref}
 
 \begin{document}
 
-\makeatletter
-    \begin{titlepage}
-        \begin{center}
-            {\huge \bfseries  \@title }\\[0.5cm] 
-            {\LARGE  \@author}\\[50ex] 
-            {\large \@date}
-        \end{center}
-    \end{titlepage}
-\makeatother
-\thispagestyle{empty}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
 \newpage
 
 \setcounter{page}{1} %Start the actually document on page 1
