@@ -41,8 +41,61 @@ number of maps of the form $X \to Y$ without restrictions (an element in $Y$ can
 theorem \ref{thmNumWords}. For seeing this, we number the elements of $X$ and $Y$ using natural numbers.
 Given a map $f:X \to Y$, the sequence $f(1),f(2), \cdots, f(k)$ forms a word of length $k$. The number of words is therefore equivalent to the number of such maps.
 
-
 \subsection{Permutations}
+
+A notion that is closely related to the definition of a word, is the definition of a \textit{permutation}. First of all, the basic idea is to count maps, but 
+usually with certain properties. Let $X$ and $Y$ be sets with $|X|=k$ and $|Y|=n$. We might ask: how many bijections $f:X \to Y$ are there? Recall that
+a map is bijective if it is surjective and injective. In other words, given two elements $x,y \in X$ such that $f(x)=f(y)$, then it is implied that $x=y$ (the injective property), and 
+every element of $Y$ appears in the preimage of a certain element of $X$ (the surjective property). It follows that the cardinalities of $X$ and $Y$ must be equal.
+These observations lead us to the definition of a permutation.
+
+\begin{defn}[permutation]
+A \textit{permutation} is a bijection from $\{1, 2, 3, \cdots, n\}$ to itself.
+\end{defn}
+\noindent
+In that sense the number of permutations is the number of bijections from $\{1, 2, \cdots, n\}$ to itself.
+Equivalently, a permutation might be interpreted as a total linear ordering of the set $\{1, 2, 3, \cdots, n\}$.
+If so, we need to arrange them in a certain way. How many ways to do this are there? 
+The following theorem provides one possible solution.
+
+\begin{theorem}
+The number of permutations of $\{1, 2, \cdots, n\}$ is equal to $n!=1\cdot 2 \cdot 3 \cdots n$.\footnote{Recall that $0!=1$.}
+\end{theorem}
+
+\begin{proof}
+There are $n$ choices for the first element. For the second element there are $n-1$ choices since
+one element is already occupied. For the $k$-th element there are $n-k+1$ choices. For the last element there is one choice.
+Thus, the total number of permutations is given by $n(n-1)(n-2)\cdots 2 \cdot 1=n!$. This completes the proof.
+\end{proof}
+
+In the following, we will generalize the above result to injective maps. Let $k \leq n$. In how many ways can we produce a collection 
+of $k$ elements out of $n$? Such a collection is called a $k$-permutation.
+
+\begin{defn}[$k$-permutation]
+A $k$-permutation is a total linear ordering on a $k$-element subset of $\{1, 2, \cdots, n\}$.
+\end{defn}
+
+\begin{exmp}
+Let $\{1,2 ,3\}$. A $1$-permutation is just a $1$-element subset, thus there is nothing order. The set of 
+$2$-permutations is given by $\{\{1,2\}, \{1,3\}, \{2,1\}, \{2,3\}, \{3,1\}, \{3,2\}\}$.
+Thus , there are six $2$-permutations in total.
+\end{exmp}
+
+\newpage
+
+The general case of the number of $k$-permutations is examined in the following theorem.
+
+\begin{theorem}
+The number of $k$-permutations of $\{1,2, \cdots, n\}$ is equal to $$n(n-1)\cdots (n-k+1).$$
+\end{theorem}
+
+\begin{proof}
+There are $n$ possible choices for the first entry of the subset. There are $(n-1)$ possible choices for the second element because the second element can occupy any entry except the one of the first element. 
+For the $k$-th entry there are $n-k+1$ possible choices. All these possibilities are independent, hence
+the total number of $k$-permutations is equal to their product $n(n-1)\cdots (n-k+1)$.
+\end{proof}
+
+The number $n(n-1)\cdots (n-k+1)$ is sometimes called the $k$ \textit{decreasing power} and is denoted by $n^{\downarrow k}$.
 
 \subsection{Merry-go-rounds and Fermat's little theorem}
 
