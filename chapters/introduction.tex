@@ -99,7 +99,44 @@ The number $n(n-1)\cdots (n-k+1)$ is sometimes called the $k$ \textit{decreasing
 
 \subsection{Merry-go-rounds and Fermat's little theorem}
 
+The problem which we are going to discuss next will illustrate a connection of combinatorics to algebra and number theory.
+
 \subsection{Binomial coefficients}
+
+Next, we consider the following important definition.
+
+\begin{defn}[bionmial coefficient]
+Let $k \leq n$. The number of $k$-element subsets of $\{1, 2, \cdots, n\}$ is called a \textit{binomial coefficient} ${n \choose k}$ ("$n$ choose $k$").
+\end{defn}
+
+How do we interpret this number? Suppose that we are hiring people to certain positions and suppose that we have $n$ candidates and we have $k$ identical positions.
+The number of selecting $k$ people out of $n$ is called ${n \choose k}$. Notice that this is different than the problem from problem about $k$-permutations.
+In our current case, the order of the $k$ elements that we choose does not matter. Thus, choosing all $k$ element subsets of a set and then ordering them in all possible ways
+is equal to the $k$-permutations that we have seen above. How do we count the number of $k$-element subsets of a set?
+
+\begin{theorem}
+The number of $k$-element subsets of a set with cardinality $n$ is equal to 
+$$
+{n \choose k}=\frac{n!}{k!(n-k)!}=\frac{n(n-1)\cdots (n-k+1)}{k!}.
+$$
+\end{theorem}
+
+\begin{proof}
+We consider ordered collections of distinct elements of length $k$. There are $n$ ways of choosing the first element, and $n-k+1$ ways of choosing the $k$-th element.
+Hence there are 
+$$
+n(n-1)\cdots (n-k+1)=\frac{n!}{(n-k)!}
+$$
+ways such ordered collections. Since we are concerned with the number of unordered subsets and each subset has cardinality $k$, each subset can be rearranged in $k!$ ways.
+Therefore, the number of ways to choose a $k$-element subset of a set with cardinality $n$ is given by 
+$$
+\frac{\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}.
+$$
+This completes the proof.
+\end{proof}
+
+With the above theorem, we have shown something additionally that is not obvious at all and not necessarily easy to prove either.
+We have also shown that the number $\frac{n(n-1)\cdots (n-k+1)}{k!}$ is integer.
 
 \subsection{The Pascal triangle}
 
