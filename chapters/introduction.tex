@@ -21,8 +21,7 @@ Let $A=\{1, 2, 3, 4\}$, then $112$, $132$, $1234$, $111$, $2345$, and so on are 
 Notice that the length of the words is not fixed.    
 \end{exmp}
 
-In the study of combinatorics a very classical question is as follows. Given an alphabet $A$ of length $|A|=n$ , how many words of length $k$ consisting of $n$
-letters exist? This question leads us to the following theorem.
+In the study of combinatorics a very classical question is as follows. Given an alphabet $A$ of length $|A|=n$ , how many words over $A$ of length $k$ exist? This question leads us to the following theorem.
 
 \begin{theorem}
 The number of words of length $k$ in an alphabet consisting of $n$ letters is equal to $n^k$.
@@ -38,7 +37,7 @@ $$
 
 The above proof is fairly simple, but there is a different possible interpretation of this problem. Let $X$ and $Y$ be sets. We might ask: what is the total
 number of maps of the form $X \to Y$ without restrictions (an element in $Y$ can be hit multiple times)? It appears that this question can be solved using 
-theorem \ref{thmNumWords}. For seeing this, we number the elements of $X$ and $Y$ using natural numbers.
+Theorem \ref{thmNumWords}. For seeing this, we number the elements of $X$ and $Y$ using natural numbers.
 Given a map $f:X \to Y$, the sequence $f(1),f(2), \cdots, f(k)$ forms a word of length $k$. The number of words is therefore equivalent to the number of such maps.
 
 \subsection{Permutations}
@@ -119,6 +118,7 @@ The number of $k$-element subsets of a set with cardinality $n$ is equal to
 $$
 {n \choose k}=\frac{n!}{k!(n-k)!}=\frac{n(n-1)\cdots (n-k+1)}{k!}.
 $$
+\label{thmBinomial}
 \end{theorem}
 
 \begin{proof}
@@ -138,6 +138,87 @@ This completes the proof.
 With the above theorem, we have shown something additionally that is not obvious at all and not necessarily easy to prove either.
 We have also shown that the number $\frac{n(n-1)\cdots (n-k+1)}{k!}$ is integer.
 
+At this point we provide some properties of binomial coefficients. We leave the proof as an easy exercise to the reader.
+
+\begin{enumerate}[(i)]
+    \item $\displaystyle {n \choose 0}={n \choose n}=1$.
+    \item $\displaystyle {n \choose 1}={n \choose n-1}=n$
+    \item $\displaystyle {n \choose 1}={n \choose n-k}$.
+    \item $\displaystyle {n \choose k}={n - 1 \choose k -1} + {n - 1 \choose k}$.
+\end{enumerate}
+
+Let us examine property $(iv)$ in more detail. Despite its obvious algebraic proof, there is an intuitive combinatorial version as well.
+We provide a proof sketch.
+
+\begin{theorem}
+$\displaystyle {n \choose k}={n - 1 \choose k -1} + {n - 1 \choose k}$
+\label{recurrencePascal}
+\end{theorem}
+
+\begin{proof}[Proof-sketch]
+Given a set $A=\{1, \cdots, n\}$ with $n$ elements. The number of $k$-element subsets of $A$ is ${n \choose k}$ according to theorem \ref{thmBinomial}.
+Suppose that we pick the element $1$ of $A$, then all $k$-element subsets of $A$ are divided into two parts, some of them contain the element $1$, and the others do not.
+Since we have already picked one element, we need to pick $k-1$ elements out of the remaining $n-1$ elements. There are ${n-1 \choose k-1}$ subsets containing $1$.
+Thus, the subsets of cardinality $k$ that do not contain $1$ is equal to ${n - 1 \choose k}$, because we want to pick a $k$-element subset out of $n-1$ elements since $1$ element is forbidden.
+\\
+Adding up the two parts are equal to ${n \choose k}$. This completes the proof.
+\end{proof}
+
+
 \subsection{The Pascal triangle}
 
+Binomial coefficients can be arranged in a triangle which is called the Pascal triangle.
+Its rows are indexed by integers from $0$ up to infinity and in each row we write down all binomial coefficients.
+For example, for ${n \choose k}$, $n=4$ represents the fifth row of the Pascal triangle and since $k \leq n$ there are $5$ binomial coefficients, namely ${4 \choose 0}=1, {4 \choose 1}=4, {4 \choose 2}=6, {4 \choose 3}=4$ and ${4 \choose 4}=1$.
+\\
+The relation given In Theorem \ref{recurrencePascal} provides a way of constructing the Pascal triangle. It says that the sum of two neighbors, namely ${n-1 \choose k-1}$ and ${n-1 \choose k}$ is equal to ${n \choose k}$. Thus, taking two neighbors in one row and
+adding them up gives as the element below them (e.g. $3+3$ in row $n=3$ provides the element $6$ in the row $n=4$).
+\\
+\\
+\begin{tabular}{>{$n=}l<{$\hspace{12pt}}*{13}{c}}
+    0 &&&&&&&1&&&&&&\\
+    1 &&&&&&1&&1&&&&&\\
+    2 &&&&&1&&2&&1&&&&\\
+    3 &&&&1&&3&&3&&1&&&\\
+    4 &&&1&&4&&6&&4&&1&&\\
+    5 &&1&&5&&10&&10&&5&&1&\\
+    6 &1&&6&&15&&20&&15&&6&&1
+\end{tabular}
+
+\begin{proposition}
+$\displaystyle {n \choose 0} + {n \choose k} + \cdots + {n \choose n}=2^n.$
+\end{proposition}
+
+\begin{proof}
+The binomial coefficient ${n \choose k}$ is the number of $k$-element subsets of a $n$-element set $A=\{1, \cdots, n\}$. Hence,
+$$
+\sum_{k=0}^n {n \choose k}
+$$
+is equal to the number of all possible subsets of $A$. We can associate a subset of $A$ with a binary number of length $n$ 
+whereby each digit in this binary number represents a specific element in $A$. Now, setting a digit to $1$ means that we pick the element from $A$ at this position
+for our subset. Setting it to $0$ means that we do not pick it. This is equal to the number of maps $\{1, \cdots, n\} \to \{0,1\}$ and the total number of such maps is equal to $2^n$ or in other words, the number of binary numbers that
+can be represented with $n$ digits is equal to $2^n$. This completes the proof.
+\end{proof}
+
+We call the above binomial coefficients, because they arise as coefficients in the binomial formulas $(a+b)^n$. Let us prove this.
+
+\begin{theorem}(Newton's Binomial Theorem)
+$$
+(a+b)^n = \sum_{k=0}^n {n \choose k} a^{n-k} \cdot b^k=a^n+n \cdot a^{n-1} \cdot b+ \frac{n(n-1)}{2} a^{n-2} \cdot b^2+ \cdots + n \cdot a \cdot b^{n-1}+b^n
+$$
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+
 \subsection{Exercises}
+
+\begin{enumerate}
+    \item Find the number of subsets of a $10$-element set with an odd number of elements.
+    \item Compute the sum $\displaystyle \sum_{k=0}^n 2^k {n \choose k}$.
+    \item Find the number of ways to rearrange the letters of the word \textit{EULER}.
+    \item Find the number of ways to rearrange the letters of the word \textit{CATALAN}.
+    \item How many necklaces can be formed with $7$ distinct beads? Necklaces can be rotated and/or flipped over. All beads must be used.
+\end{enumerate}
