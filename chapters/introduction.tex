@@ -187,6 +187,7 @@ adding them up gives as the element below them (e.g. $3+3$ in row $n=3$ provides
 
 \begin{proposition}
 $\displaystyle {n \choose 0} + {n \choose k} + \cdots + {n \choose n}=2^n.$
+\label{propositionPascalTriangle}
 \end{proposition}
 
 \begin{proof}
@@ -206,12 +207,31 @@ We call the above binomial coefficients, because they arise as coefficients in t
 $$
 (a+b)^n = \sum_{k=0}^n {n \choose k} a^{n-k} \cdot b^k=a^n+n \cdot a^{n-1} \cdot b+ \frac{n(n-1)}{2} a^{n-2} \cdot b^2+ \cdots + n \cdot a \cdot b^{n-1}+b^n
 $$
+\label{newtonBinomialThm}
 \end{theorem}
 
 \begin{proof}
-
+We expand the left-hand-side.
+$$
+(a+b)^n=\underbrace{(a+b)(a+b)(a+b)\cdots (a+b)}_{n-times}
+$$
+Every term in the above sum is the result of choosing either $a$ or $b$ from each of the $n$ factors. We want to calculate the coefficient for $a^{n-k}b^k$.
+Since $b^k$, we must choose $b$ from exactly $k$ of the factors and we choose $a$ from the remaining $n-k$ factors.
+Thus, the coefficients for $a^{n-k}b^k$ is equal to ${n \choose k}$. This completes the proof.
 \end{proof}
 
+\begin{corolarry}
+$\displaystyle {n \choose 0}- {n \choose 1} + {n \choose 2} - {n \choose 3} + \cdots + (-1)^n {n \choose n}=0$
+\end{corolarry}
+
+\begin{proof}
+Consider the binomial formula as provided in Theorem \ref{newtonBinomialThm}. Now, let $a=1$ and $b$ (or vice versa), it follows that 
+$$
+(1-1)^n= \sum (-1)^k {n \choose k}.
+$$
+\end{proof}
+
+Notice, that Newton's binomial Theorem provides an easy proof for proposition \ref{propositionPascalTriangle} as well by considering $(1+1)^n=\sum {n \choose k}$.
 
 \subsection{Exercises}
 
