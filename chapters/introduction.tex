@@ -1,9 +1,46 @@
 \section{Introduction}\label{introduction} 
 
 We start by discussing fundamental combinatorial constructions such as words of a fixed alphabet, permutations of finite
-sets and the number of subsets 
+sets and the number of subsets with a given number of elements. While we give some examples of how some combinatorial problems 
+naturally arise, our main goal in this first section is to provide an intuitive introduction to the topic of 
+Enumerative Combinatorics. 
 
 \subsection{Words}
+
+The first definition of this lecture is the definition of a word over a finite alphabet of symbols.
+
+\begin{defn}[word]
+Let $A$ be a finite set, called \textit{alphabet}. A \textit{word} is a finite sequence of elements of $A$. The \textit{size} of $A$ is its cardinality $|A|$.
+The \textit{size} or \textit{length} of a word is its number of elements from $A$.
+\end{defn}
+\noindent
+We might abuse language to a certain extent and call the elements of $A$ \textit{letters}.
+
+\begin{exmp}
+Let $A=\{1, 2, 3, 4\}$, then $112$, $132$, $1234$, $111$, $2345$, and so on are all words over $A$.
+Notice that the length of the words is not fixed.    
+\end{exmp}
+
+In the study of combinatorics a very classical question is as follows. Given an alphabet $A$ of length $|A|=n$ , how many words of length $k$ consisting of $n$
+letters exist? This question leads us to the following theorem.
+
+\begin{theorem}
+The number of words of length $k$ in an alphabet consisting of $n$ letters is equal to $n^k$.
+\label{thmNumWords}
+\end{theorem}
+\begin{proof}
+There are $n$ possibilities for the first letter. The same holds for all other letters.
+Thus, the total number of words equals
+$$
+\underbrace{n \cdot n \cdot n \cdots n}_\text{$k$-times} = n^k
+$$
+\end{proof}
+
+The above proof is fairly simple, but there is a different possible interpretation of this problem. Let $X$ and $Y$ be sets. We might ask: what is the total
+number of maps of the form $X \to Y$ without restrictions (an element in $Y$ can be hit multiple times)? It appears that this question can be solved using 
+theorem \ref{thmNumWords}. For seeing this, we number the elements of $X$ and $Y$ using natural numbers.
+Given a map $f:X \to Y$, the sequence $f(1),f(2), \cdots, f(k)$ forms a word of length $k$. The number of words is therefore equivalent to the number of such maps.
+
 
 \subsection{Permutations}
 
