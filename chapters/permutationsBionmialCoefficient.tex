@@ -1,8 +1,45 @@
-\section{Permutations and binomial coefficients continued}\label{permutationsBinomialCoefficient} 
+\section[Permutations, binomial coefficients]{Permutations and binomial coefficients continued}\label{permutationsBinomialCoefficient} 
 
-Hello
+The following lecture discusses some more problems in which binomial coefficients arise and will lead us 
+to the famous principle of exclusion and inclusion.
 
 \subsection{The cab driver problem}
+
+We will begin with the so called 'cab driver problem'. Suppose that we have a city with streets arranged in 
+a regular grid (like Manhattan) and suppose that our city contains $n$ blocks from north to south and $m$ blocks
+from west to east. Now, suppose that we have a cab driver that wants to drive from one point on the grid to another
+point, say from $A$ to $B$. In figure \ref{fig:cabdriverprobleminitialexample} the general setup is visualized.
+
+\begin{figure}[ht]
+    \centering
+    \scalebox{.6}{\incfig{cabdriverprobleminitialexample}}
+    \caption{The Cap Driver Problem.}
+    \label{fig:cabdriverprobleminitialexample}
+\end{figure}
+\noindent
+\textbf{Question:} In how many ways can we get from $A$ to $B$? We are only allowed to go east or north and we are not allowed to go backwards.
+\\
+\\
+Let $P_{m,n}$ be the number of paths from $A$ to $B$. We notice first, that we can solve this problem by considering a sequence of letters. Let 
+us denote "going north" by the letter "N" and "going east" by the letter "E", then a path from $A$ to $B$ corresponds to a sequence of N's and E's
+of length $m+n$ with $n$ N's and $m$ E's. The total number of such words is equal to the total number of paths from $A$ to $B$.
+\\
+\\
+There is also another solution. Starting from any point in the above grid, there are only two choices: go north or go east. Let $A$ be the starting point
+and denote "going north in the first step" by $A'$ and "going east in the second step" by $A''$, then the total number of paths from $A$ to $B$ is equal to 
+the total number of paths from $A'$ to $B$ plus the total number of paths from $A''$ to $B$. The result is a so called recurrence relation given by the following equation.
+$$
+P_{A \to B}=P_{A' \to B} + P_{A'' \to B}
+$$
+In general, if we go one step north the first time, then there are $P_{m, n-1}$ paths left from this position to $B$. Similarly, if we go east first, then there are $P_{m-1, n}$
+paths left from this position to $B$. This results in the following relation.
+$$
+P_{m, n}=P_{m,n-1}+P_{m-1, n}
+$$
+Given the initial conditions $P_{0,n}=P_{m,0}=1$, and $P_{m,1}=m+1$ and $P_{1,n}=n+1$, our final solution can be found quickly.
+$$
+P_{m,n}={m + n \choose m}={m+n \choose n}
+$$
 
 \subsection{Balls in boxes and multisets}
 
@@ -13,3 +50,10 @@ Hello
 \subsection{The derangement problem}
 
 \subsection{Exercises}
+
+\begin{enumerate}
+    \item Find the number of lattice paths from $(-2, -2)$ to $(3,3)$ passing through the point $(0,0)$ (each segment of a path goes north or east).
+    \item In how many ways is it possible to permute the letters in the word \textit{EUCLID} in such a way that the order of the vowels (\textit{E,U,I}) is unchanged?
+    \item Find the number of merry-go-rounds formed by $10$ carriages of two different colours.
+    \item Find the number of positive integers not exceeding $300$ and \textbf{not} divisible by any of $2,3,$ and $5$.
+\end{enumerate}
