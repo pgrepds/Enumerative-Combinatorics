@@ -50,7 +50,7 @@ This question leads us to the definition of a multiset. Let $X$ be a set.
 
 \begin{defn}
 A multiset is a function $\mu: X \to \mathbb{Z}_{\geq  0}$. The size of a multiset is $\sum_{x \in X} \mu (x)$.
-\end{defn}q
+\end{defn}
 
 \begin{exmp}
 Assume that we have $5$ boxes, that is $X=\{1, 2, 3, 4 ,5\}$, and $\mu(1)=1, \mu(2)=0, \mu(3)=3$ and $\mu(4)=1$. Compare this with figure \ref{fig:multisetboxesexample}. Notice that box $3$ contains 
@@ -64,7 +64,62 @@ $3$ balls. The size of $\mu$ is $5$.
 \end{figure}
 \end{exmp}
 
+It is easy to see that the number of configurations of $k$ balls into $n$ boxes corresponds to the number of multisets of $\{1,2,\cdots, n\}$
+of size $k$. Now, let us interpret our problem in a slightly different way. Imagine $k$ balls and separators (visualized as "$|$") that correspond to a box. Then, the above configuration configuration 
+looks as follows.
+$$
+0\ |\ \ |\ 000\ |\ 0
+$$
+For $4$ boxes, we only need $3$ separators, or in general for $n$ boxes we need $n-1$ separators. Thus, configurations of balls in boxes correspond to configurations of bars and balls.
+If we consider balls and bars to be objects, then we have $k+n-1$ objects in total.
+\begin{tikzcd}
+    & k \text{ balls}  \\
+k+n-1 \arrow[ru] \arrow[rd] &                  \\
+    & n-1 \text{ bars}
+\end{tikzcd}
+
+The above investigations encourage the following theorem.
+
+\begin{theorem}
+$k$ balls can be put into $n$ boxes in ${n+k-1 \choose k}$ ways. Equivalently, the number of $k$-element multisets in $\{1, \cdots, n\}$ is ${n+k-1 \choose k}$.
+\end{theorem}
+\noindent
+The formal proof is left as an exercise for the reader.
+
 \subsection{Integer compositions}
+
+We are going to discuss integer compositions in the following section. We start with the formal definition.
+
+\begin{defn}
+An integer composition of $n \in \mathbb{Z}_{> 0}$ is a presentation of $n$ as  an ordered sum $n=n_1 + n_2 + \cdots + n_k, n_1,\cdots,n_k \in \mathbb{Z}_{> 0}$.
+\end{defn}
+
+\begin{exmp}
+For $n=1$ there is only one trivial presentation, that is just $1$ itself. For $n=2$ there is one presentation, namely $2=1+1$. For $n=3$ there are $4$ presentations,
+ namely $3=2+1=1+2=1+1+1$. Notice that this sums are ordered, thus $1+2$ and $2+1$ are considered to be different.
+ For $n=4$ there are $8$ presentations, namely $4=3+1=1+3=2+2=2+1+1=1+2+1=1+1+2=1+1+1+1$.
+\end{exmp}
+
+\begin{theorem} The following statements are true.
+\begin{enumerate}[(i)]
+    \item The number of compositions of $n$ is $2^{n-1}$.
+    \item The number of compositions of $n$ with exactly $k$ summands is ${n-1 \choose k-1}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We start with $(ii)$. The composition of $n$ with exactly $k$ summands corresponds to configurations of $n$ balls 
+inside $k$ boxes, s.t. each box is nonempty. This is the same as the number of configurations of $n-k$ balls in $k$ boxes, 
+which is equal to
+$$
+{n-k+k-1 \choose k-1} = {n-1 \choose k-1}.
+$$
+We continue with $(i)$. The answer is trivial. The total number of compositions follows from the following equation.
+$$
+{n-1 \choose 0} + {n-1 \choose 1} + \cdots + {n-1 \choose n-1}=2^{n-1}.
+$$
+This completes the proof.
+\end{proof}
 
 \subsection{Principle of inclusion and exclusion}
 
