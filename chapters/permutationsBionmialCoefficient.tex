@@ -191,6 +191,44 @@ The standard proof of the above is via induction. This is left as an exercise fo
 
 \subsection{The derangement problem}
 
+In this section we want to apply the principle of inclusion and exclusion to the so called derangement problem. But first, we note that sometimes it turns out that the 
+problem is symmetric in the following sense that $|A_{i1} \cap \cdots \cap A_{ik}|$ does not depend on $A_{i1}, \cdots, A_{ik}$, but only on $k$, that is $A^k=|A_{i1} \cap \cdots \cap A_{ik}|$. 
+Then, 
+$$
+|A_1 \cup \cdots \cup A_n|=n \cdot A - {n \choose 2} A^2 + {n \choose 3} A^3 - \cdots + (-1)^{n-1} A^n.
+$$
+
+Now, suppose that $n$ people leave their coats in the coatroom, each of them get back a random coat. 
+What is the probability that everyone will get someone else's coat? Recall that the total number of permutations 
+(that is the total number of configurations of coats) is given by $n!$. We might ask: How many permutations have 
+not fixed points, i.e. never map a number into itself?\\
+\\
+We compute the number of permutations with fixed points. Define 
+$$
+A_i=\{\text{permutations  bringing }i \text{ to } i\}
+$$ 
+and 
+$$
+A_{i1} \cap \cdots \cap A_{ik}=\{\text{permutations bringing } i_1 \mapsto i_i, \cdots, i_k \mapsto i_k\}.
+$$
+Then, $|A_i|=(n-1)!$ and $|A_{i1} \cap \cdots \cap A_{ik}|=A^k=(n-k)!$, hence
+\begin{align*}
+|A_1 \cup \cdots \cup A_n|&=n(n-1)!- {n \choose 2} (n-2)! + \cdots + (-1)^{n-1} \cdot 0!\\
+&=
+n! - \frac{n!}{2!}+ \frac{n!}{3!} - \cdots + \frac{(-1)^{n-1}n!}{n!}
+\end{align*}
+It follows that
+$$
+n! - |A_1 \cup \cdots \cup A_k|=n!\biggr(1-1 + \frac{1}{2!}- \frac{1}{3!}+ \cdots + \frac{(-1)^n}{n!}\biggl)
+$$
+
+Thus, the desired probability follows from the following equations.
+\begin{align*}
+p(n)&=1-1+\frac{1}{2!}-\frac{1}{3!}+\cdots + \frac{(-1)^n}{n!}\\
+e^x&=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+ \cdots + \frac{x^n}{n!} + \cdots\\
+&\implies \lim_{n \to \infty} p(n)=1-1+\frac{1}{2!}-\frac{1}{3!}+ \cdots = e^{-1}=\frac{1}{e}
+\end{align*}
+where $e=2.71828 \cdots$, thus $\frac{1}{e} \approx 0.37$.
 \subsection{Exercises}
 
 \begin{enumerate}
