@@ -123,6 +123,72 @@ This completes the proof.
 
 \subsection{Principle of inclusion and exclusion}
 
+In the following section we are going to introduce the "Principle of Inclusion and Exclusion (PIE)". Let us introduce this topic
+with an example.
+
+\begin{exmp}
+Suppose that we have a room full of students. $25$ of them speak spanish, $24$ of them speak french and $8$ of them speak both spanish 
+and french. How many students speak at least one foreign language? Denote the set of students speaking spanish by $S$ and the 
+set of students speaking french by $F$. Now, consider the following Venn-diagram.
+\begin{figure}[H]
+    \centering
+    \scalebox{0.6}{\begin{tikzpicture}
+        \begin{scope}[shift={(3cm,-5cm)}, fill opacity=0.45]
+            \fill[green] \secondcircle;
+            \fill[blue] \thirdcircle;
+            \draw \secondcircle node [above] {$F$};
+            \draw \thirdcircle node [below] {$S$};
+        \end{scope}
+    \end{tikzpicture}}
+    \caption{Venn-diagram for two languages.}
+\end{figure}
+
+The number of students that speak at least one language is equal to $|S \cup F|=|S| + |F|-|S \cap F|=25+24-8=41$. Notice that we must substract their intersection 
+or we count the students speaking both french and spanish twice.\\\\
+Now, suppose that $15$ students speak german, $6$ speak german and spanish, $7$ speak german and french and 
+$4$ speak all three languages. Let us denote the set of students who speak german by $G$, the set of students who speak french by $F$ 
+and the set of students that speak spanish by $S$. Consider the following Venn-diagram.
+
+\begin{figure}[H]
+    \centering
+    \scalebox{0.6}{\begin{tikzpicture}
+        \begin{scope}[shift={(3cm,-5cm)}, fill opacity=0.45]
+            \fill[red] \firstcircle;
+            \fill[green] \secondcircle;
+            \fill[blue] \thirdcircle;
+            \draw \firstcircle node[below] {$G$};
+            \draw \secondcircle node [above] {$F$};
+            \draw \thirdcircle node [below] {$S$};
+        \end{scope}
+    \end{tikzpicture}}
+    \caption{Venn-diagram for three languages.}
+\end{figure}
+Now the result is very similar to the one before. The number of students that speak at least one language is equal to the following.
+$$
+|G \cup S \cup F|=|G| + |F| + |S| - |S \cap F| - |S \cap G| - |G \cap F| + |S \cap F \cap G|=25+24+15-8-7-6+4=47.
+$$
+\end{exmp}
+
+Let us generalize this by the following theorem.
+
+\begin{theorem}(Principle of inclusion-exclusion)
+Let $A_1\cdots, A_n$ be finite subsets of a set $X$. Then 
+\begin{align*}
+|A_1 \cup \cdots \cup A_n|&=|A_1|+\cdots+|A_n|\\
+&=\sum_{1 \leq i < j \leq n} |A_i \cap A_j|+\sum_{1 \leq i < j \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1}|A_1 \cap \cdots \cap A_n|.
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+Let $x \in A_1 \cup \cdots \cup A_n$. How many times does $x$ appear on the right-hand-side? Suppose that $x \in A_1 \cap \cdots \cap A_p$ and 
+$x \notin A_{p+1}, A_{p+2}, \cdots, A_n$. Then $x$ contributes to the right-hand-side with multiplicity 
+$$
+p- {p \choose 2} + {p \choose 3} - {p \choose 4} + \cdots + (-1)^{p-1} {p \choose p}=1+(-1 +p- {p \choose 2} + {p \choose 3} - \cdots + (-1)^{p-1} {p \choose p})=1.
+$$
+\end{proof}
+
+The standard proof of the above is via induction. This is left as an exercise for the reader.
+
 \subsection{The derangement problem}
 
 \subsection{Exercises}
