@@ -80,8 +80,6 @@ $2$-permutations is given by $\{\{1,2\}, \{1,3\}, \{2,1\}, \{2,3\}, \{3,1\}, \{3
 Thus , there are six $2$-permutations in total.
 \end{exmp}
 
-\newpage
-
 The general case of the number of $k$-permutations is examined in the following theorem.
 
 \begin{theorem}
@@ -99,7 +97,6 @@ The number $n(n-1)\cdots (n-k+1)$ is sometimes called the $k$ \textit{decreasing
 \subsection{Merry-go-rounds and Fermat's little theorem}
 The problem which we are going to discuss next will illustrate a connection of combinatorics to algebra and possibly number theory.
 \\
-\\
 Consider a train $Q$ consisting of $p$ carriages. Suppose that we have $n$ colours. In how many ways can we paint $Q$, if we can paint 
 each carriage with one of the $n$ colours? Consider figure \ref{fig:marrygoroundtrain} as an example. There is a train with $5$ carriages which
 are coloured in a certain way using $3$ different colours.
@@ -113,29 +110,40 @@ are coloured in a certain way using $3$ different colours.
 
 Now, this is exactly the word problem, thus the solution is given by $n^p$.
 \\
-\\
 \noindent
 \textbf{Question:} Suppose that instead of a train we have a merry-go-round and suppose further, for some reason, that $p$ is prime. 
 In how many ways can we paint each carriage of a merry-go-round using $n$ colours?
-\\
-\\
-\noindent
+
+\begin{figure}[ht!]
+    \centering
+    \scalebox{.3}{\incfig{marrygoroundinitialcase}}
+    \caption{Marry-go-round initial case.}
+    \label{fig:marrygoroundinitialcase}
+\end{figure}
+
+In figure \ref{fig:marrygoroundinitialcase} a marry-go-round with $5$ carriages is visualized. They are again coloured using $3$ colours.\\
 What is the difference to the problem we have considered before? In this case we can rotate the carriages without changing its colours, but these colourings are considered to be identical.
 \\
 \\
-\textbf{Idea:} We cut the merry-go-round (which we can just consider a circle for now) and make a train out of it and there are exactly $p$ places on which we could make a cut.
+\textbf{Idea:} We cut the merry-go-round (consider the two lines in figure \ref{fig:marrygoroundinitialcase} as the "cutting point") and make a train out of it and there are exactly $p$ places on which we could make a cut.
 \\
 \\
 The first naive guess would be that the solution to our problem is equal to $\frac{n^p}{p}$, since we can get $p$ trains from each merry-go-round. This is wrong for an obvious reason. The number $\frac{n^p}{p}$
 is by no means always integer. So let us trying to understand what is wrong with this reasoning. First, if we cut at two different places in our merry-go-round, then we could get the same train. An easy way for seeing this
-is to consider a merry-go-round in which each carriage is coloured using the same colour. There are still $p$ ways to make a train out of it but each of them is identical.
-\\
+is to consider a merry-go-round in which each carriage is coloured using the same colour. There are still $p$ ways to make a train out of it but each of them is identical. Compare this reasoning with figure \ref{fig:marrygoroundonecolour}.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{marrygoroundonecolour2}
+    \caption{Marry-go-round with only one colour.}
+    \label{fig:marrygoroundonecolour}
+\end{figure}
+
 To say it in different words, if we rotate a merry-go-round by an arbitrary number of times, it will eventually coincide with itself, thus if a merry-go-round goes to itself after some nontrivial rotation, then all carriages have the same colour.
 Now, notice that this is not the case if not all carriages have the same colour, since then we get exactly $p$ different trains, but observe that this is only true provided that $p$ is prime. In order to see this, consider a merry-go-round with $4$ carriages,
 and assume that we have two colours. black and white. Then, there are only two different trains which we can get from this merry-go-round. Colour the merry-go-round as follows: black - white - black - white. Then after two rotations, we get the same train. Thus, 
 instead of four trains we get two. However, if $p$ is prime, then our claim is indeed true.
-\\
-\\
+\newpage
 If our merry-go-round has carriages of different colours, then we can compute the number of such merry-go-rounds.
 It is the number of trains divided by $p$. What is the number of trains which have different colors?
 This is $n$ to the power of $p$, which is the total number of trains, minus the number of trains of the same color, which is just $n$ and for each color, there is only one train for which all carriages have this given colour.
