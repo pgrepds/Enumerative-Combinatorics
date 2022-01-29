@@ -43,6 +43,27 @@ $$
 
 \subsection{Balls in boxes and multisets}
 
+Suppose that we have $k$ balls and $n$ boxes. In how many ways can we put $k$ balls into $n$ boxes? If the maximal capacity of each box is $1$, the answer would be 
+$n \choose k$ if $n \geq k$ and $0$ otherwise. What happens if there are no restrictions on the capacity of boxes?
+\\
+This question leads us to the definition of a multiset. Let $X$ be a set.
+
+\begin{defn}
+A multiset is a function $\mu: X \to \mathbb{Z}_{\geq  0}$. The size of a multiset is $\sum_{x \in X} \mu (x)$.
+\end{defn}q
+
+\begin{exmp}
+Assume that we have $5$ boxes, that is $X=\{1, 2, 3, 4 ,5\}$, and $\mu(1)=1, \mu(2)=0, \mu(3)=3$ and $\mu(4)=1$. Compare this with figure \ref{fig:multisetboxesexample}. Notice that box $3$ contains 
+$3$ balls. The size of $\mu$ is $5$.
+
+\begin{figure}[ht]
+    \centering
+    \scalebox{0.4}{\incfig{multisetboxesexamples3}}
+    \caption{Balls in boxes and mutlisets.}
+    \label{fig:multisetboxesexample}
+\end{figure}
+\end{exmp}
+
 \subsection{Integer compositions}
 
 \subsection{Principle of inclusion and exclusion}
