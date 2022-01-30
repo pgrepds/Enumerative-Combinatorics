@@ -182,6 +182,71 @@ C=\frac{a_1 - a_0 \mu}{\lambda - \mu},\ D=\frac{a_0 \lambda - \mu}{\lambda - \mu
 Therefore, $C$ and $D$ are uniquely determined, hence there are no other solutions then the above.
 
 \subsection{The Binet formula}
+In the following section we are going to go over two examples of the characteristic equation. 
+\begin{exmp}
+Let $A(n)=5 A(n-1)-6A(n-2)$. Find a solution for $a_0=3$ and $a_1=7$. First, define the characteristic which is quickly found.
+\begin{align*}
+t^2=5t-6\\
+t^2-5t+6=0
+\end{align*}
+The roots are $\lambda=2$ and $\mu=3$, thus the general solution of our characteristic equation is given by
+$$
+a_n=C \cdot 2^n + D \cdot 3^n.
+$$
+Solving the equation for $C$ and $D$ yields the following system of linear equations.
+\begin{align*}
+    &\begin{cases}
+        a_0 = 3 = C + D\\    
+        a_1 = 7 = 2C + 3D   
+    \end{cases}\\
+    &\begin{cases}
+        C=2\\
+        D=1
+    \end{cases}
+\end{align*}
+Therefore, 
+$$
+a_n=\underbrace{2^{n+1}}_{2 \cdot 2^n} + \underbrace{3^n}_{1 \cdot 3^n}.
+$$
+\end{exmp}
+\newpage
+\begin{exmp}
+The Fibonacci sequence is given by the linear recurrence relation $F(n)=F(n-1)+F(n-2)$ with $f_0=0$ and $f_1=1$. Thus,
+the characteristic equation is given by
+\begin{align*}
+t^2=t+1\\
+t^2-t-1=0
+\end{align*}
+and the roots, call them $\varphi$ and $\psi$, follow
+\begin{align*}
+\varphi &= \frac{1 + \sqrt(5)}{2}\\
+\psi &= \frac{1 - \sqrt(5)}{2}
+\end{align*}
+And as before
+\begin{align*}
+    &\begin{cases}
+        0 = C + D\\    
+        1 = C \cdot \varphi + D \cdot \psi   
+    \end{cases}\\
+    &\begin{cases}
+        D = -C\\    
+        1 = C (\varphi - \psi)   
+    \end{cases}\\
+    &\begin{cases}
+        C = \frac{1}{\varphi - \psi}\\    
+        D = \frac{1}{\psi - \varphi}   
+    \end{cases}\\
+    &\begin{cases}
+        C = \frac{1}{\sqrt{5}}\\    
+        D = -\frac{1}{\sqrt{5}}   
+    \end{cases}\\
+\end{align*}
+The solution follows.
+$$
+f_n= \frac{\varphi^n - \psi^n}{\varphi - \psi} = \frac{1}{\sqrt{5}}\biggr (\biggr(\frac{1 + \sqrt{5}}{2}\biggl )^n - \biggr( \frac{1- \sqrt{5}}{2} \biggr )^n \biggr )
+$$
+This formula is called "The Binet Formula".
+\end{exmp}
 
 \subsection{Linear recurrence relations of arbitrary order}
 
