@@ -286,7 +286,39 @@ The above is known as the "Vandermont determinant" and since all $\lambda_i$ and
 
 \subsection{The case of roots with multiplicities}
 
-What happens if some roots of the characteristic equation occur with multiplicities?
+What happens if some roots of the characteristic equation occur with multiplicities? Given $A(n)=c_1 A(n-1)+ c_2 A(n-2)$ yields $t^2-c_1t -c_2=0$.
+Suppose that $\lambda$ is a unique (double) root of this equation, then
+$$
+\begin{cases}
+    -c_2=\lambda^2\\    
+    c_1 = 2 \lambda   
+\end{cases}
+$$
+since $(t-\lambda)^2=t^2 -c_1t-c_2$ and $1, \lambda, \lambda^2, \cdots, \lambda^n$ is a solution.
+
+\begin{claim}
+$0, \lambda, 2 \lambda^2, 3 \lambda^3, \cdots, n \lambda^n$ is another solution.
+\end{claim}
+\begin{proof}
+The above yields to
+$$
+n \lambda^n = c_1 (n-1)\lambda^{n-1} + c_2 (n-2)\lambda^{n-2}.
+$$
+The solution $-c_2=\lambda^2$ and $c_1=2 \lambda$ yields in the following.
+$$
+n \lambda^n = 2 \lambda(n-1)\lambda^{n-1} + (-\lambda^2)(n-2)\lambda^{n-2}
+$$
+Both sides are divisible by $\lambda^n$, thus $n=2(n-1)-(n-2)$ is a solution which is linearly independent of the previous one.
+\end{proof}
+
+In general, if $\lambda$ is a root of the characteristic polynomial of order $r$, then the characteristic polynomial is divisible by $(t- \lambda)^r$.
+Hence, the following are all solutions of the above.
+\begin{align*}
+1, \lambda, \lambda^2, \cdots, \lambda^n, \cdots \\
+0, \lambda, 2 \lambda^2, \cdots, n \lambda^n, \cdots \\
+0, \lambda, 4 \lambda^4, 9 \lambda^3, \cdots, n^2 \lambda^n, \cdots \\
+0, \lambda, 2^{r-1} \lambda^2, \cdots, n^{r-1}\lambda^n, \cdots
+\end{align*}
 
 \subsection{Exercises}
 
