@@ -113,12 +113,39 @@ $A(n)=A(n-1)+A(n-2)+A(n-5)$ from the last section is a linear recurrence relatio
 
 \begin{remark}
 A sequence defined by a linear recurrence relation is uniquely determined by the first $k$ terms $A(0), A(1), \cdots, A(k-1)$.
-Why is that the case? Suppose that $a_0, a_1, a_2, \cdots$ and $a_0', a_1', a_2', \cdots$ satisfy the relation of definition \ref{defn:rec},
-then $a_0+a_0', a_1+a_1',a_2+a_2', \cdots$ also satisfy this relation and so does $c \cdots a_0, c \cdot a_1, c \cdot a_2, \cdots$.
+Why is that the case? Suppose that $a_0, a_1, a_2, \cdots$ and $a_0', a_1', a_2', \cdots$ satisfy the relation $(*)$,
+then $a_0+a_0', a_1+a_1',a_2+a_2', \cdots$ also satisfy $(*)$ and so does $c \cdots a_0, c \cdot a_1, c \cdot a_2, \cdots$.
 In other words, the solutions of a linear recurrence relation form a vector space.
 \end{remark}
 
 \subsection[The characteristic equation]{The characteristic equation}
+
+In the following section we want to solve the following problem.\\
+\textbf{Problem:} Given a recurrence relation
+$$
+(*)\ A(n)=c_1A(n-1)+c_2A(n-2)+\cdots+c_kA(n-k)
+$$
+as in definition \ref{defn:rec}. Find \underline{all} the sequences $(a_0, a_1, a_2, \cdots)$ satisfying this relation.
+\\
+For $k=1$ the linear recurrence relation yields $A(n)=c \cdot A(n-1)$, and the answer for our problem is just the geometric progression 
+given by $a_n=c^n a_0$ where $a_0 \in \mathbb{R}$.
+\\
+\\
+\noindent
+\textbf{Idea:} Find a geometric progression $(a_0, \lambda a_0, \lambda^2 a_0, \cdots)$ satisfying $(*)$. Suppose $\lambda \neq 0$ and $a_0 \neq 0$.
+Then,
+$$
+a_0 \lambda^n=c_1 a_0 \lambda^{n-1}+c_2 a_0 \lambda^{n-2} + \cdots + c_k a_0 \lambda^{n-k}, \forall n \geq k.
+$$
+Dividing the above equation by $a_0 \lambda^{n-k}$ yields 
+$$
+\lambda^k=c_1 \lambda^{k-1} + c_2 \lambda^{k-2} + \cdots + c_k.
+$$
+Then $\lambda$ is a root of the so called \underline{characteristic equation} which is given by
+$$
+t^k=c_1t^{k-1}+c_2 t^{k-2} + \cdots + c_k.
+$$
+The coefficients of the characteristic equation are the same as in the original recurrence relation.
 
 \subsection{Linear recurrence relations of order $2$}
 
