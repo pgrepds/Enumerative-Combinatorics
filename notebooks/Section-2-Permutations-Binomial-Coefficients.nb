@@ -10,17 +10,458 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[       820,         34]
-NotebookOptionsPosition[       561,         21]
-NotebookOutlinePosition[       960,         37]
-CellTagsIndexPosition[       917,         34]
+NotebookDataLength[     19975,        501]
+NotebookOptionsPosition[     18214,        462]
+NotebookOutlinePosition[     18611,        478]
+CellTagsIndexPosition[     18568,        475]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
+Cell["Section 2 - Permutations and Binomial Coefficients continued", "Title",
+ CellChangeTimes->{{3.852556703505988*^9, 3.852556713509199*^9}, {
+  3.852556787414956*^9, 
+  3.852556820137918*^9}},ExpressionUUID->"c6b1b0b9-136a-4f31-9f13-\
+01e481ae7b10"],
+
+Cell[CellGroupData[{
+
+Cell["Multisets", "Chapter",
+ CellChangeTimes->{{3.852556833993375*^9, 
+  3.8525568411100807`*^9}},ExpressionUUID->"711189c0-f6fd-4b22-b58b-\
+b418d95c16b8"],
+
+Cell["\<\
+We start by generating all multisets of a given set of natural numbers.\
+\>", "Text",
+ CellChangeTimes->{{3.852556773937993*^9, 3.8525567799776382`*^9}, {
+  3.8525568472472363`*^9, 
+  3.852556852419492*^9}},ExpressionUUID->"d64d73ac-1393-4f94-aa27-\
+45ee233997aa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", " ", "=", " ", 
+  RowBox[{"Range", "[", "10", "]"}]}]], "Input",
+ CellChangeTimes->{{3.852556882047914*^9, 3.852556890058243*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"9bf0220e-f2a5-4d44-bf7c-abba52fe1009"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8", 
+   ",", "9", ",", "10"}], "}"}]], "Output",
+ CellChangeTimes->{3.8525568908380547`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"8fedf831-5a9d-4c4c-8646-a02911ef9aee"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"joined", " ", "=", " ", 
+  RowBox[{"Join", "[", 
+   RowBox[{"data", ",", " ", "data", ",", " ", "data"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.852556947511135*^9, 3.852556955412004*^9}, {
+  3.852557178690963*^9, 3.8525571800763807`*^9}, {3.852557314485758*^9, 
+  3.8525573318703527`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"da1d6bc5-c737-4d22-8d0d-1855f3ded588"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8", 
+   ",", "9", ",", "10", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5", ",",
+    "6", ",", "7", ",", "8", ",", "9", ",", "10", ",", "1", ",", "2", ",", 
+   "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8", ",", "9", ",", 
+   "10"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.852556955930715*^9, 3.8525571837539787`*^9, {3.852557324622961*^9, 
+   3.852557332317812*^9}},
+ CellLabel->"Out[8]=",ExpressionUUID->"bc7bce73-794a-47cd-9605-955e988a971d"]
+}, Open  ]],
+
+Cell["\<\
+We are going to remove the duplicates by creating a multiset, counting its \
+multiplicity in the list \[OpenCurlyQuote]data\[CloseCurlyQuote]. We can use \
+the following inbuilt Mathematica function for this.\
+\>", "Text",
+ CellChangeTimes->{{3.85255698343601*^9, 3.8525570114932833`*^9}, {
+  3.852557150809111*^9, 
+  3.852557160714135*^9}},ExpressionUUID->"85c822d4-fd00-4c35-856c-\
+25250327c3fd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", " ", "Tally"}]], "Input",
+ CellChangeTimes->{{3.852557163376844*^9, 3.852557165380591*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"755c120a-4541-47d1-a972-b55d8c472e32"],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   FrameBox[
+    DynamicModuleBox[{System`InformationDump`open$$ = False, 
+     System`InformationDump`mouseOver$$ = False}, 
+     PaneSelectorBox[{True->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False,
+             BaseStyle -> None],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox[
+           PaneBox[
+            TooltipBox[
+             ButtonBox[
+              PaneSelectorBox[{False->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIcon"]], True->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIconHot"]]}, Dynamic[
+                CurrentValue["MouseOver"]]],
+              Appearance->None,
+              BaseStyle->"Link",
+              ButtonData->"paclet:ref/Tally",
+              ButtonNote->"paclet:ref/Tally"],
+             "\"paclet:ref/Tally\""],
+            FrameMargins->{{0, 4}, {0, 2}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Tally\\\", \\\"[\\\", \
+StyleBox[\\\"list\\\", \\\"TI\\\"], \\\"]\\\"}]\\) tallies the elements in \
+\\!\\(\\*StyleBox[\\\"list\\\", \\\"TI\\\"]\\), listing all distinct elements \
+together with their multiplicities.\\n\\!\\(\\*RowBox[{\\\"Tally\\\", \\\"[\\\
+\", RowBox[{StyleBox[\\\"list\\\", \\\"TI\\\"], \\\",\\\", \
+StyleBox[\\\"test\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) uses \
+\\!\\(\\*StyleBox[\\\"test\\\", \\\"TI\\\"]\\) to determine whether pairs of \
+elements should be considered equivalent, and gives a list of the first \
+representatives of each equivalence class, together with their \
+multiplicities.\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          PaneBox[GridBox[{
+             {
+              
+              DynamicModuleBox[{System`InformationDump`open$$ = {
+               False, False, False, False, False, False}}, 
+               StyleBox[GridBox[{
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Documentation\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Documentation\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Documentation", "Tooltip"]& ], 
+                   TemplateBox[{
+                    
+                    TemplateBox[{
+                    "\"Local \[RightGuillemet]\"", "paclet:ref/Tally", 
+                    "paclet:ref/Tally", "Link", {
+                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]}, 
+                    BaseStyle -> {
+                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]}}, 
+                    "HyperlinkTemplate"], "\"  \"", 
+                    StyleBox[
+                    "\"|\"", "InformationRowLabel", StripOnInput -> False], 
+                    "\"  \"", 
+                    TemplateBox[{"\"Web \[RightGuillemet]\"", {
+                    URL[
+                    "http://reference.wolfram.com/language/ref/Tally.html"], 
+                    None}, "http://reference.wolfram.com/language/ref/Tally.\
+html", "Hyperlink", {
+                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]}, 
+                    BaseStyle -> {
+                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]}}, 
+                    "HyperlinkTemplate"]},
+                    "RowDefault"]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Attributes\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Attributes\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Attributes", "Tooltip"]& ], 
+                   RowBox[{"{", "Protected", "}"}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"FullName\"",
+                    TooltipStyle->"TextStyling"],
+                    
+                    Annotation[#, "FullName", 
+                    "Tooltip"]& ], "\<\"System`Tally\"\>"}
+                 },
+                 AutoDelete->False,
+                 GridBoxAlignment->{"Columns" -> {Right, Left}},
+                 GridBoxDividers->None,
+                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.5599999999999999]}, 
+                    Offset[0.27999999999999997`]}, "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.8]}, 
+                    Offset[0.2]}}], "DialogStyle",
+                StripOnInput->False],
+               DynamicModuleValues:>{}]}
+            },
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.5599999999999999]}, 
+                Offset[0.27999999999999997`]}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[3.6]}, 
+                Offset[0.2]}}],
+           FrameMargins->{{6, 6}, {6, 3}}], ""},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpener"]], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, False],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], False->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox[
+           PaneBox[
+            TooltipBox[
+             ButtonBox[
+              PaneSelectorBox[{False->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIcon"],
+                ImageSizeCache->{13., {4., 9.}}], True->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIconHot"],
+                ImageSizeCache->{13., {4., 9.}}]}, Dynamic[
+                CurrentValue["MouseOver"]]],
+              Appearance->None,
+              BaseStyle->"Link",
+              ButtonData->"paclet:ref/Tally",
+              ButtonNote->"paclet:ref/Tally"],
+             "\"paclet:ref/Tally\""],
+            FrameMargins->{{0, 4}, {0, 2}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Tally\\\", \\\"[\\\", \
+StyleBox[\\\"list\\\", \\\"TI\\\"], \\\"]\\\"}]\\) tallies the elements in \
+\\!\\(\\*StyleBox[\\\"list\\\", \\\"TI\\\"]\\), listing all distinct elements \
+together with their multiplicities.\\n\\!\\(\\*RowBox[{\\\"Tally\\\", \\\"[\\\
+\", RowBox[{StyleBox[\\\"list\\\", \\\"TI\\\"], \\\",\\\", \
+StyleBox[\\\"test\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) uses \
+\\!\\(\\*StyleBox[\\\"test\\\", \\\"TI\\\"]\\) to determine whether pairs of \
+elements should be considered equivalent, and gives a list of the first \
+representatives of each equivalence class, together with their \
+multiplicities.\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpener"],
+               ImageSizeCache->{10., {3., 7.}}], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpenerHot"],
+               ImageSizeCache->{10., {3., 7.}}]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, True],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}, Dynamic[System`InformationDump`open$$],
+      BaselinePosition->Baseline,
+      FrameMargins->0,
+      ImageSize->Automatic],
+     DynamicModuleValues:>{}],
+    BaseStyle->"InformationGridFrame",
+    StripOnInput->False], "InformationGridPlain",
+   StripOnInput->False],
+  InformationData[<|
+   "ObjectType" -> "Symbol", "Usage" -> 
+    "\!\(\*RowBox[{\"Tally\", \"[\", StyleBox[\"list\", \"TI\"], \"]\"}]\) \
+tallies the elements in \!\(\*StyleBox[\"list\", \"TI\"]\), listing all \
+distinct elements together with their multiplicities.\n\
+\!\(\*RowBox[{\"Tally\", \"[\", RowBox[{StyleBox[\"list\", \"TI\"], \",\", \
+StyleBox[\"test\", \"TI\"]}], \"]\"}]\) uses \!\(\*StyleBox[\"test\", \"TI\"]\
+\) to determine whether pairs of elements should be considered equivalent, \
+and gives a list of the first representatives of each equivalence class, \
+together with their multiplicities.", 
+    "Documentation" -> <|
+     "Local" -> "paclet:ref/Tally", "Web" -> 
+      "http://reference.wolfram.com/language/ref/Tally.html"|>, "OwnValues" -> 
+    None, "UpValues" -> None, "DownValues" -> None, "SubValues" -> None, 
+    "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
+    "Options" -> None, "Attributes" -> {Protected}, "FullName" -> 
+    "System`Tally"|>, False]]], "Output",
+ CellChangeTimes->{3.85255716585118*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"b5779f2f-bf09-4563-aa85-e67c14a4a8a3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Tally", "[", "joined", "]"}]], "Input",
+ CellChangeTimes->{{3.852557168374259*^9, 3.8525571868606377`*^9}, {
+  3.852557341528202*^9, 3.85255734226442*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"9395bf9c-4181-4310-aa7a-4b8340670065"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "3"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.852557187501247*^9, 3.852557343326847*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"322d0420-ad0e-488d-8d49-185a03eb553a"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.852557280916164*^9, 
+  3.852557288879751*^9}},ExpressionUUID->"65e38283-895b-4306-9050-\
+5d96d2fcad49"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.852557013705576*^9, 
+  3.85255701374376*^9}},ExpressionUUID->"fcbf2754-cd45-4085-a9aa-\
+6ea6f690805b"]
+}, Open  ]]
+}, Open  ]]
 },
-WindowSize->{606., 683.25},
-WindowMargins->{{987, Automatic}, {174, Automatic}},
+WindowSize->{1290., 1031.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 FrontEndVersion->"13.0 for Linux x86 (64-bit) (December 2, 2021)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"4a666752-4af7-4912-a9f2-20b17a8f5a9e"
@@ -36,9 +477,33 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 252, 4, 105, "Title",ExpressionUUID->"c6b1b0b9-136a-4f31-9f13-01e481ae7b10"],
+Cell[CellGroupData[{
+Cell[857, 30, 156, 3, 75, "Chapter",ExpressionUUID->"711189c0-f6fd-4b22-b58b-b418d95c16b8"],
+Cell[1016, 35, 274, 6, 37, "Text",ExpressionUUID->"d64d73ac-1393-4f94-aa27-45ee233997aa"],
+Cell[CellGroupData[{
+Cell[1315, 45, 239, 4, 29, "Input",ExpressionUUID->"9bf0220e-f2a5-4d44-bf7c-abba52fe1009"],
+Cell[1557, 51, 283, 6, 33, "Output",ExpressionUUID->"8fedf831-5a9d-4c4c-8646-a02911ef9aee"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1877, 62, 394, 7, 29, "Input",ExpressionUUID->"da1d6bc5-c737-4d22-8d0d-1855f3ded588"],
+Cell[2274, 71, 572, 11, 33, "Output",ExpressionUUID->"bc7bce73-794a-47cd-9605-955e988a971d"]
+}, Open  ]],
+Cell[2861, 85, 408, 8, 37, "Text",ExpressionUUID->"85c822d4-fd00-4c35-856c-25250327c3fd"],
+Cell[CellGroupData[{
+Cell[3294, 97, 197, 3, 29, "Input",ExpressionUUID->"755c120a-4541-47d1-a972-b55d8c472e32"],
+Cell[3494, 102, 13288, 310, 139, "Output",ExpressionUUID->"b5779f2f-bf09-4563-aa85-e67c14a4a8a3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16819, 417, 257, 4, 29, "Input",ExpressionUUID->"9395bf9c-4181-4310-aa7a-4b8340670065"],
+Cell[17079, 423, 786, 24, 33, "Output",ExpressionUUID->"322d0420-ad0e-488d-8d49-185a03eb553a"]
+}, Open  ]],
+Cell[17880, 450, 152, 3, 29, "Input",ExpressionUUID->"65e38283-895b-4306-9050-5d96d2fcad49"],
+Cell[18035, 455, 151, 3, 29, "Input",ExpressionUUID->"fcbf2754-cd45-4085-a9aa-6ea6f690805b"]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
