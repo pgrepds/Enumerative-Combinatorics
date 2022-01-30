@@ -93,6 +93,29 @@ $$
 
 \subsection{Domino tilings}
 
+\subsection{Vending machine problem}
+
+Suppose that we only have nickels ($5$), dimes ($10$) and quarters ($25$). In how many ways can we pay $\$1$ (or any other amount)?
+Notice first that, unlike in the integer composition problem, the sums $5 + 10 + 10 + 25 + 25 + 25$ and $10 + 25 + 10 + 5 + 25 + 25$ are not considered identical.
+Let us denote the number of ways to pay $5n$ cents by $A(n)$ and set $A(0)=1$. Let us make a table with the $n$ ranging to $6$.
+\bigskip
+\begin{center}
+    \begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+     \hline
+     $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ \\ 
+     $A(n)$ & $1$ & $1$ & $2$ & $3$ & $5$ & $9$ & $15$ \\  
+     \hline
+    \end{tabular}
+\end{center}
+\bigskip
+\noindent
+Let us examine $n=5$, the number of ways to pay $25$ cents, in more detail. There is only one way to pay with a quarter. There are three ways 
+to pay $25$ cents if we start with a dime, namely $10 + 10 + 5, 10 + 5 + 10, 5 + 10 + 10$, and five ways to pay starting with a nickel.
+It is not hard to see that this yields the following recurrence relation.
+$$
+A(n) = A(n-1)+A(n-2)+A(n-5)
+$$
+
 \subsection{Linear recurrence relations}
 
 In the following section, we are going to introduce the formal definition of a linear recurrence relation.
@@ -161,7 +184,8 @@ a_n=C \cdot \lambda^n + D \cdot \mu^n
 $$
 is also a solution (the linear combinations of the above solutions).\\\\
 \textbf{Question:} Are there any other solutions? 
-\newpage
+\\
+\\
 Well, the answer is "No", because for any solution $(a_0, a_1, \cdots)$ of $(*)$, there exist $C$
  and $D$ such that $a_n=C \dot \lambda^n + D \cdot \mu^n$ which is called the \textit{general solution} of $(*)$. But why is that so?
 Since $(*)$ is a linear recurrence relation of order $k=2$, $(a_0, a_1, a_2, \cdots, a_n, \cdots)$ is uniquely determined by its first two terms $a_0$ and $a_1$.
@@ -209,7 +233,7 @@ $$
 a_n=\underbrace{2^{n+1}}_{2 \cdot 2^n} + \underbrace{3^n}_{1 \cdot 3^n}.
 $$
 \end{exmp}
-\newpage
+
 \begin{exmp}
 The Fibonacci sequence is given by the linear recurrence relation $F(n)=F(n-1)+F(n-2)$ with $f_0=0$ and $f_1=1$. Thus,
 the characteristic equation is given by
