@@ -250,6 +250,40 @@ This formula is called "The Binet Formula".
 
 \subsection{Linear recurrence relations of arbitrary order}
 
+It is no surprise that we can generalize the results of the last sections to linear recurrence relations of an arbitrary order $k$.
+Given a linear recurrence relation
+$$
+A(n)=c_1A(n-1)+c_2A(n-2)+\cdots+c_kA(n-k)\ (*)
+$$
+then $1, \lambda, \lambda^2, \cdots, \lambda^n, \cdots$ is a solution of $(*)$ where $\lambda$ is a root of the characteristic equation
+$$
+t^k=c_1 t^{k-1} + \cdots + c_k.
+$$
+Suppose it has $k$ distinct roots $\lambda_1, \cdots, \lambda_k$, then 
+$$
+a_n=c_1 \lambda_1^n + c_2 \lambda_2^n + \cdots + c_k \lambda_k^n
+$$
+is the general solution. Suppose that we are given $a_0, \cdots, a_{k-1}$. We want a solution with the following initial solutions.
+$$
+\begin{cases}
+    a_0 = c_1 + c_2 + \cdots + c_k\\    
+    a_1 = c_1 \lambda_1 + c_2 \lambda_2 + \cdots + c_k \lambda_k\\
+    \vdots \text{ } \cdots\\
+    a_{k-1}= c_1 \lambda_1^{k-1} + c_2 \lambda_2^{k-2} + \cdots + c_k \lambda^{k-1}   
+\end{cases}
+$$
+The above system of linear equations has a unique solution if and only if its determinant is equal to 
+$$
+\det\begin{pmatrix} 1 & 1 & \cdots & 1 
+    \\ \lambda_1 & \lambda_2 & \cdots & \lambda_k \\
+    \lambda_1^2 & \lambda_2^2 & \cdots & \lambda_k^2 \\
+    \vdots & \vdots & \vdots & \vdots \\
+    \lambda_1^{k-1} & \cdots & \cdots & \lambda_k^{k-1}  
+\end{pmatrix} 
+= \prod_{k \geq 1 > j \geq 1} (\lambda_i - \lambda_j)
+$$
+The above is known as the "Vandermont determinant" and since all $\lambda_i$ and $\lambda_j$ are distinct, the above has an unique solution.
+
 \subsection{The case of roots with multiplicities}
 
 \subsection{Exercises}
