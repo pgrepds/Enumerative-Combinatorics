@@ -1,8 +1,59 @@
 \section{Linear recurrences - The Fibonacci sequence}\label{fibonacci} 
 
-Hallo
+We are going to discuss the Fibonacci sequence in the following section.
 
 \subsection{Fibonacci's rabbit problem}
+
+Suppose we have a pair of rabbits that are adults after one month. In the month after they are fully grown,
+they give birth to two more rabbits. The newborns are again fully grown after one month and give birth to two more 
+rabbits, and so on. Consider the following figure as an example.
+\\
+\\
+$
+\begin{array}{l}
+    \includegraphics[scale=0.1]{pictures/rabbits.jpg}
+\end{array}
+n=1$\\
+$
+\begin{array}{l}
+    \includegraphics[scale=0.1]{pictures/rabbits.jpg}
+\end{array}
+n=2 \text{ (grown up)}$
+\\
+$
+\begin{array}{l}
+    \includegraphics[scale=0.1]{pictures/rabbits.jpg}
+    \includegraphics[scale=0.1]{pictures/rabbits.jpg}
+\end{array}
+n=3$
+\\
+$
+\begin{array}{l}
+    \includegraphics[scale=0.1]{pictures/rabbits.jpg}
+    \includegraphics[scale=0.1]{pictures/rabbits.jpg}
+    \includegraphics[scale=0.1]{pictures/rabbits.jpg}
+\end{array}
+n=4$
+\\
+\\
+\noindent
+\textbf{Question:} How many pairs of rabbits will we have after one year?
+\\
+\\
+\noindent
+Let us introduce the following notation. Denote the number of pairs of rabbits during
+the $n$-th month by $F(n)$. Then, we could express $F(n)$ by the number of rabbits in 
+the $(n-1)$-th month and $(n-2)$-th month by the following equation.
+$$
+F(n)=F(n-1)+F(n-2)
+$$
+Thus, by setting $F(2)=1$ the following sequence of numbers follows.
+$$
+1,1,2,3,5,8,13,21,36,55,89,144, \cdots
+$$
+\noindent
+The above sequence is called the "Fibonacci sequence" and we are going to investigate some 
+of its fascinating properties in the next section.
 
 \subsection{Fibonacci numbers and the Pascal triangle}
 
