@@ -149,6 +149,38 @@ The coefficients of the characteristic equation are the same as in the original 
 
 \subsection{Linear recurrence relations of order $2$}
 
+Let $A(n)=c_1 A(n-1) + c_2 A(n-2)\ (*)$ and $t^2=c_1t +c_2\ (**)$. Suppose that $\lambda$ and $\mu$ are roots of $(**)$ where $\lambda \neq \mu$.
+Then, 
+\begin{align*}
+1, \lambda, \lambda^2, \lambda^3, \cdots \\
+1, \mu, \mu^2, \mu^3, \cdots
+\end{align*}
+are solutions of equation $(*)$. Since the solutions of a recurrence relation form a vector space 
+$$
+a_n=C \cdot \lambda^n + D \cdot \mu^n 
+$$
+is also a solution (the linear combinations of the above solutions).\\\\
+\textbf{Question:} Are there any other solutions? 
+\newpage
+Well, the answer is "No", because for any solution $(a_0, a_1, \cdots)$ of $(*)$, there exist $C$
+ and $D$ such that $a_n=C \dot \lambda^n + D \cdot \mu^n$ which is called the \textit{general solution} of $(*)$. But why is that so?
+Since $(*)$ is a linear recurrence relation of order $k=2$, $(a_0, a_1, a_2, \cdots, a_n, \cdots)$ is uniquely determined by its first two terms $a_0$ and $a_1$.
+We need to show that for any $a_0$ and $a_1$ there exist a $C$ and $D$ such that
+\begin{align*}
+&\begin{cases}
+    a_0 = C + D\\    
+    a_1 = C \dot \lambda + D \cdot \mu   
+\end{cases}\\
+&\begin{cases}
+    D = a_0 - C\\    
+    a_n = C \cdot \lambda + (a_0 - C) \cdot \mu   
+\end{cases}\\
+&
+C=\frac{a_1 - a_0 \mu}{\lambda - \mu},\ D=\frac{a_0 \lambda - \mu}{\lambda - \mu} 
+\end{align*}
+\noindent
+Therefore, $C$ and $D$ are uniquely determined, hence there are no other solutions then the above.
+
 \subsection{The Binet formula}
 
 \subsection{Linear recurrence relations of arbitrary order}
